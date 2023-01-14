@@ -1,7 +1,6 @@
 import subprocess
 import os
 import sys
-from datetime import datetime, timedelta
 
 
 def git_info(git_dir):
@@ -12,9 +11,9 @@ def git_info(git_dir):
     local_changes = subprocess.check_output(
         ['git', 'status', '--porcelain']).strip()
     recent_commit = subprocess.check_output(
-        ['git', 'log', '-1', '--pretty=%an', '--since="a week ago"']).strip()
+        ['git', 'log', '-1', '--pretty=%ad', '--since="a week ago"', '--before="this week"']).strip()
     blame_Rufus = subprocess.check_output(
-        ['git', 'log', '-1', '--pretty=%an', '--author="Haziq Rahat"']).strip()
+        ['git', 'log', '-1', '--pretty=%an']).strip()
 
     # Print the active branch
     print('active branch:', active_branch.decode())
@@ -26,7 +25,7 @@ def git_info(git_dir):
     print("recent commit:", recent_commit.decode() != '')
 
     # Print whether the current head commit was authored by Rufus
-    print("blame Rufus:", blame_Rufus.decode() != '')
+    print("blame Rufus:", blame_Rufus.decode() == 'Rufus')
 
 
 if __name__ == '__main__':
