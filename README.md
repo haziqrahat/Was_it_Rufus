@@ -1,6 +1,6 @@
 # Was_it_Rufus
 
-#Instructions
+# Instructions
 
 1. Clone the repository
 2. Navigate to the 'Was_it_Rufus' directory
