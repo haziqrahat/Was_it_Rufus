@@ -7,8 +7,8 @@ import subprocess
 # Create a helper method that prints specifics about a local repository
 
 
-def get_git_info(local_repo_path):
-    os.chdir(local_repo_path)
+def get_git_info(git_dir):
+    os.chdir(git_dir)
     # Use subprocess to run the 'git' command and retrieve the output
     active_branch = subprocess.check_output(
         ['git', 'rev-parse', '--abbrev-ref', 'HEAD']).strip()
