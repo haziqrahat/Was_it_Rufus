@@ -14,7 +14,7 @@
 
 ## 🖥️ Expected output
 
-<img width="710" alt="image" src="https://user-images.githubusercontent.com/47474227/212499025-8b59353d-c640-4fc2-851f-50e7ae22a97f.png">
+<img width="668" alt="image" src="https://user-images.githubusercontent.com/47474227/212499090-5d936ac2-d280-44ba-8e82-4e0c09b3593b.png">
 
 ### ⚡️ Comments:
 
