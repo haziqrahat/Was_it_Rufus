@@ -6,29 +6,35 @@ import subprocess
 
 # Create a helper method that prints specifics about a local repository
 
-
 def get_git_info(git_dir):
+
+    # Locate the git directory
     os.chdir(git_dir)
-    # Use subprocess to run the 'git' command and retrieve the output
-    active_branch = subprocess.check_output(
-        ['git', 'rev-parse', '--abbrev-ref', 'HEAD']).strip()
-    local_changes = subprocess.check_output(
-        ['git', 'status', '--porcelain']).strip()
-    recent_commit = subprocess.check_output(
-        ['git', 'log', '-1', '--pretty=%ad', '--since="1 week ago"']).strip()
-    blame_Rufus = subprocess.check_output(
-        ['git', 'log', '-1', '--pretty=%an']).strip()
+
+    # Here subprocess module is used to run the 'git' command and retrieve the output
 
     # Print the active branch
+    active_branch = subprocess.check_output(
+        ['git', 'rev-parse', '--abbrev-ref', 'HEAD']).strip()
+
     print('active branch:', active_branch.decode())
 
     # Print whether repository files have been modified
+    local_changes = subprocess.check_output(
+        ['git', 'status', '--porcelain']).strip()
+
     print("local changes:", local_changes.decode() != '')
 
     # Print whether the current head commit was authored in the last week
+    recent_commit = subprocess.check_output(
+        ['git', 'log', '-1', '--pretty=%ad', '--since="1 week ago"']).strip()
+
     print("recent commit:", recent_commit.decode() != '')
 
     # Print whether the current head commit was authored by Rufus
+    blame_Rufus = subprocess.check_output(
+        ['git', 'log', '-1', '--pretty=%an']).strip()
+
     print("blame Rufus:", blame_Rufus.decode() == 'Rufus')
 
 
