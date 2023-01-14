@@ -28,7 +28,7 @@ def git_info(git_dir):
     print("recent commit:", recent_commit.decode() != '')
 
     # Print whether the current head commit was authored by Rufus
-    print("blame Rufus:", blame_Rufus.decode() == 'Rufus')
+    print("blame Rufus:", blame_Rufus.decode() == 'Rufus ')
 
 
 if __name__ == '__main__':
