@@ -10,5 +10,5 @@
 python3 check_status.py path_to_remote_repo
 `
 
-💁‍ Replace the path_to_remote_repo by the actual path to your local repository
+💁‍ Replace the '* path_to_remote_repo' by the actual path to your local repository
  
