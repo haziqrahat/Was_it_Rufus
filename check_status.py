@@ -15,10 +15,10 @@ def get_git_info(git_dir):
     local_changes = subprocess.check_output(
         ['git', 'status', '--porcelain']).strip()
     recent_commit = subprocess.check_output(
-        ['git', 'log', '-1', '--pretty=%ad', '--since="yesterday"']).strip()
+        ['git', 'log', '-1', '--pretty=%ad', '--since="a week ago"', '--before="this week"']).strip()
     blame_Rufus = subprocess.check_output(
         ['git', 'log', '-1', '--pretty=%an']).strip()
-    # CHECK maoo
+
     # Print the active branch
     print('active branch:', active_branch.decode())
 
