@@ -1,0 +1,9 @@
+# Was_it_Rufus
+##How to run
+
+1. Clone the repository
+2. Navigate to the 'Was_it_Rufus' directory
+3. Run the python script
+`
+python3 check_status.py path_to_remote_repo
+`
