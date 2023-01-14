@@ -15,7 +15,7 @@ def get_git_info(git_dir):
     local_changes = subprocess.check_output(
         ['git', 'status', '--porcelain']).strip()
     recent_commit = subprocess.check_output(
-        ['git', 'log', '-1', '--pretty=%ad', '--since="a week ago"', '--before="this week"']).strip()
+        ['git', 'log', '-1', '--pretty=%ad', '--since="1 week ago"']).strip()
     blame_Rufus = subprocess.check_output(
         ['git', 'log', '-1', '--pretty=%an']).strip()
 
@@ -29,7 +29,7 @@ def get_git_info(git_dir):
     print("recent commit:", recent_commit.decode() != '')
 
     # Print whether the current head commit was authored by Rufus
-    print("blame Rufus:", blame_Rufus.decode() == 'Rufus ')
+    print("blame Rufus:", blame_Rufus.decode() == 'Haziq Rahat')
 
 
 if __name__ == '__main__':
