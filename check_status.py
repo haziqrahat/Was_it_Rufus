@@ -1,6 +1,9 @@
+# Import the existing packages
 import subprocess
 import os
 import sys
+
+# Create a helper method that prints specifics about a local repository
 
 
 def git_info(git_dir):
@@ -29,4 +32,5 @@ def git_info(git_dir):
 
 
 if __name__ == '__main__':
+    # Call the helper method from main
     git_info(sys.argv[1])
