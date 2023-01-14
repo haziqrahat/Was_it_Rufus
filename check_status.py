@@ -1,13 +1,14 @@
 # Import the existing packages
-import subprocess
 import os
 import sys
+import subprocess
+
 
 # Create a helper method that prints specifics about a local repository
 
 
-def git_info(git_dir):
-    os.chdir(git_dir)
+def get_git_info(local_repo_path):
+    os.chdir(local_repo_path)
     # Use subprocess to run the 'git' command and retrieve the output
     active_branch = subprocess.check_output(
         ['git', 'rev-parse', '--abbrev-ref', 'HEAD']).strip()
@@ -33,4 +34,4 @@ def git_info(git_dir):
 
 if __name__ == '__main__':
     # Call the helper method from main
-    git_info(sys.argv[1])
+    get_git_info(sys.argv[1])
