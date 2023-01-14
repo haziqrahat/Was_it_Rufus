@@ -20,7 +20,7 @@ def git_info(git_dir):
     print('active branch:', active_branch.decode())
 
     # Print whether repository files have been modified
-    print("local changes:", local_changes.decode() != None)
+    print("local changes:", local_changes.decode() != '')
 
     # Print whether the current head commit was authored in the last week
     print("recent commit:", recent_commit.decode())
