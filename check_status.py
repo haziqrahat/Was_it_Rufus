@@ -30,7 +30,6 @@ def get_git_info(git_dir):
 
     # Print whether the current head commit was authored by Rufus
     print("blame Rufus:", blame_Rufus.decode() == 'Rufus')
-# hello
 
 
 if __name__ == '__main__':
