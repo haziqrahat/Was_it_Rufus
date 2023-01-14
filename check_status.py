@@ -18,7 +18,7 @@ def get_git_info(git_dir):
         ['git', 'log', '-1', '--pretty=%ad', '--since="yesterday"']).strip()
     blame_Rufus = subprocess.check_output(
         ['git', 'log', '-1', '--pretty=%an']).strip()
-    # CHECK
+    # CHECK maoo
     # Print the active branch
     print('active branch:', active_branch.decode())
 
