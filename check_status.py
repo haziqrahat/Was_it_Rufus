@@ -10,7 +10,7 @@ def git_info(git_dir):
     active_branch = subprocess.check_output(
         ['git', 'rev-parse', '--abbrev-ref', 'HEAD']).strip()
     local_changes = subprocess.check_output(
-        ['git', 'status']).strip()
+        ['git', 'status', '--porcelain']).strip()
     recent_commit = subprocess.check_output(
         ['git', 'log', '-1', '--pretty=%an', '--since="a week ago"']).strip()
     blame_Rufus = subprocess.check_output(
