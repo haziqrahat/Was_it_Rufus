@@ -7,39 +7,26 @@ from datetime import datetime, timedelta
 def git_info(git_dir):
     os.chdir(git_dir)
     # Use subprocess to run the 'git' command and retrieve the output
-    branch = subprocess.check_output(
+    active_branch = subprocess.check_output(
         ['git', 'rev-parse', '--abbrev-ref', 'HEAD']).strip()
-    commit = subprocess.check_output(['git', 'rev-parse', 'HEAD']).strip()
-    author = subprocess.check_output(
-        ['git', 'log', '-1', '--pretty=%an']).strip()
-    date = subprocess.check_output(
-        ['git', 'log', '-1', '--pretty=%ad']).strip()
+    local_changes = subprocess.check_output(
+        ['git', 'status', '--porcelain']).strip()
+    recent_commit = subprocess.check_output(
+        ['git', 'log', '-1', '--pretty=%an', '--since="a week ago"']).strip()
+    blame_Rufus = subprocess.check_output(
+        ['git', 'log', '-1', '--pretty=%an', '--author="Rufus"']).strip()
 
     # Print the active branch
-    if branch.decode() == 'HEAD':
-        print("Active branch: False")
-    else:
-        print("Active branch: True")
+    print('active branch:', active_branch.decode())
 
     # Print whether repository files have been modified
-    status = subprocess.check_output(['git', 'status', '--porcelain']).strip()
-    if status:
-        print("Repository files have been modified: True")
-    else:
-        print("Repository files have been modified: False")
+    print("local changes:", local_changes.decode())
 
     # Print whether the current head commit was authored in the last week
-    date = datetime.strptime(date.decode(), "%a %b %d %H:%M:%S %Y %z")
-    if date > datetime.now() - timedelta(days=7):
-        print("Current head commit was authored in the last week: True")
-    else:
-        print("Current head commit was authored in the last week: False")
+    print("recent commit:", recent_commit.decode())
 
     # Print whether the current head commit was authored by Rufus
-    if author.decode() == "Rufus":
-        print("Current head commit was authored by Rufus: True")
-    else:
-        print("Current head commit was authored by Rufus: False")
+    print("blame Rufus:", blame_Rufus.decode())
 
 
 if __name__ == '__main__':
