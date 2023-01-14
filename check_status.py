@@ -11,7 +11,7 @@ def get_git_info(git_dir):
     # Locate the git directory
     os.chdir(git_dir)
 
-    # Here subprocess module is used to run the 'git' command and retrieve the output
+    # The subprocess module is used to run the 'git' command and retrieve the output
 
     # Print the active branch
     active_branch = subprocess.check_output(
