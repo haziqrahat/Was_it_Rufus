@@ -8,7 +8,9 @@
 
 `python3 check_status.py path_to_remote_repo`
 
-💁‍ Replace the 'path_to_remote_repo' by the actual path to your local repository
+💁‍ Replace the 'path_to_remote_repo' by the actual path to your local repository.
+
+🐍 Make sure that you are using the correct version of python that is installed on your computer.
 
 ## 🖥️ Expected output
 
