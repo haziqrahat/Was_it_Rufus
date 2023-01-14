@@ -33,5 +33,15 @@ def get_git_info(local_repo_path):
 
 
 if __name__ == '__main__':
-    # Call the helper method from main
-    get_git_info(sys.argv[1])
+
+    # Error handling to ensure path's correctness
+    path = sys.argv
+    if len(path) < 2:
+        print('Error: Path not provided')
+    elif not os.path.isdir(path[1]):
+        print('Error : Path provided is not a valid directory')
+    elif not os.path.exists(os.path.join(path[1], '.git')):
+        print('Error : Path provided is not a valid git directory')
+    else:
+        # Calling the helper method from main
+        get_git_info(path[1])
